@@ -1,70 +1,125 @@
 /* Estilo general de la página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f0f2f5, #e6e9f0);
+    color: #333; /* Color de texto por defecto (modo claro) */
     margin: 0;
     padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Transición para cambios de tema */
 }
 
-/* Estilo del contenedor principal */
+/* Contenedor principal */
 .container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease; 
+}
+
+/* Sin escalado en hover */
+.container:hover {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* Solo aplicamos la sombra, no el escalado */
 }
 
 /* Estilo para inputs y botones */
 input, button {
     margin: 10px 0;
-    padding: 10px;
+    padding: 15px;
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 16px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
+    outline: none;
 }
 
 button {
-    background-color: #007bff;
+    background-color: #6c63ff;
     color: #fff;
     border: none;
     cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(108, 99, 255, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Sin cambios en el tamaño del botón */
 button:hover {
-    background-color: #0056b3;
+    background-color: #5a54d1;
+    box-shadow: 0 6px 15px rgba(108, 99, 255, 0.2); /* No se incluye "transform: translateY()" */
 }
 
-/* Estilo para el área de resultados */
+/* Estilo para las estadísticas */
 #results {
     margin-top: 20px;
-    padding: 10px;
-    background-color: #e9ecef;
-    border-radius: 4px;
+    padding: 15px;
+    background-color: #e6e9f0;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s; /* Transición para cambios de tema */
 }
 
-/* Estilo para el historial de calificaciones */
-#history {
-    margin-top: 30px;
-}
-
-#historyList {
-    list-style-type: none;
-    padding: 0;
-}
-
+/* Historial con bordes redondeados */
 #historyList li {
-    padding: 10px;
+    padding: 15px;
     background: #f8f9fa;
-    border-bottom: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    color: #333;
 }
 
-#historyList li:nth-child(odd) {
-    background: #f1f3f5;
+/* Color de fondo en hover para los elementos de historial */
+#historyList li:hover {
+    background-color: #e2e6ea;
+}
+
+/* Modo oscuro */
+.dark-mode {
+    background-color: #1e1e1e;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .container {
+    background: #2a2a2a;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode input, .dark-mode button {
+    background-color: #2e2e2e;
+    border-color: #555;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode button {
+    background-color: #6c63ff;
+    color: #fff;
+}
+
+.dark-mode #results {
+    background-color: #2e2e2e;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode #historyList li {
+    background: #2e2e2e;
+    border-color: #444;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode #historyList li:nth-child(odd) {
+    background: #242424;
 }

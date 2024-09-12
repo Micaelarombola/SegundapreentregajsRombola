@@ -4,36 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaluación de Estudiantes</title>
-    <link rel="stylesheet" href="./css/style.css"> 
-
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-        }
-        input, button {
-            margin: 10px 0;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        #results {
-            margin-top: 20px;
-        }
-        #history {
-            margin-top: 30px;
-        }
-        #historyList {
-            list-style-type: none;
-            padding: 0;
-        }
-        #historyList li {
-            margin-bottom: 10px;
-        }
+        /* Estilos aquí */
     </style>
 </head>
 <body>
@@ -41,17 +15,28 @@
         <h1>Evaluación de Estudiantes</h1>
         <input type="text" id="studentName" placeholder="Nombre del Estudiante">
         <input type="number" id="studentGrade" placeholder="Calificación" min="0" max="10">
-        <button onclick="addGrade()">Agregar Calificación</button>
+        <button id="addStudent">Agregar Calificación</button>
         <button onclick="filterApproved()">Filtrar Aprobados (7 a 10)</button>
         <button onclick="filterFailed()">Filtrar Reprobados (Menos de 7)</button>
-        
+        <button onclick="toggleTheme()">Cambiar tema</button>
+        <input type="text" id="searchInput" placeholder="Buscar estudiante por nombre" onkeyup="searchStudent()">
+        <button onclick="exportToCSV()">Exportar a CSV</button>
+
         <div id="results"></div>
         
         <div id="history">
             <h2>Historial de Calificaciones</h2>
             <ul id="historyList"></ul>
         </div>
+
+        <div id="chartContainer">
+            <h2>Estadísticas</h2>
+            <canvas id="chart"></canvas>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
